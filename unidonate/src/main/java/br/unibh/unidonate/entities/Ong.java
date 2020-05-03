@@ -38,6 +38,20 @@ public class Ong implements Serializable{
 	@Column(nullable = false)
 	private String nome;
 
+import javax.persistence.*;
+
+@Entity
+public class Ong {
+	
+	public Ong() {}
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	@Column(nullable = false)
+	private String nome;
+	
 	@Column(nullable = false)
 	private Long cnpj;
 
@@ -53,6 +67,13 @@ public class Ong implements Serializable{
 	@OneToMany(mappedBy = "ong")
 	private Set<Donate> donates;
 	
+	
+	@Column(nullable = false)
+	private Long telefone;
+	
+	@Column(nullable = false)
+	private String email;
+
 	public Long getId() {
 		return id;
 	}
@@ -100,5 +121,5 @@ public class Ong implements Serializable{
 	public void setCnpj(Long cnpj) {
 		this.cnpj = cnpj;
 	}
-
+	
 }
